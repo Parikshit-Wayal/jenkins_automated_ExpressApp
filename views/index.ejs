@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Create Account</title>
+</head>
+<body>
+    <div class="w-full min-h-screen bg-zinc-900 text-white p-10">
+        <h3 class="text-white text-3xl mb-5">Create Account</h3>
+        <form action="/register" method="post">
+            <input id="name" class="px-3 py-3 m-2 mt-5 outline-none rounded-md bg-transparent border-2" type="text" placeholder="Name" name="name" required>
+            <input id="username" class="px-3 py-3 m-2 mt-5 outline-none rounded-md bg-transparent border-2" type="text" placeholder="Username" name="username" required>
+            <input id="age" class="px-3 py-3 m-2 mt-5 outline-none rounded-md bg-transparent border-2" type="number" placeholder="Age" name="age" required>
+            <input id="email" class="px-3 py-3 m-2 mt-5 outline-none rounded-md bg-transparent border-2" type="email" placeholder="Email" name="email" required>
+            <input id="password" class="px-3 py-3 m-2 mt-5 outline-none rounded-md bg-transparent border-2" type="password" placeholder="Password" name="password" required>
+            <input class="px-5 py-2 m-2 mt-5 rounded-md bg-blue-600" type="submit" value="Create Account">
+        </form>
+        <div class="mt-5">
+            <p class="text-gray-400">Already have an account?</p>
+            <a class="text-blue-500 underline" href="/login">Login here</a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputs = document.querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="password"]');
+            
+            inputs.forEach((input, index) => {
+                input.addEventListener('keypress', (event) => {
+                    if (event.key === 'Enter') {
+                        event.preventDefault();
+                        const nextInput = inputs[index + 1];
+                        if (nextInput) {
+                            nextInput.focus();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
