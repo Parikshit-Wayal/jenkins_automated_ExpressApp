@@ -4,7 +4,6 @@ const app=express()
 const path=require("path")
 const mongoose=require("mongoose")
 require('dotenv').config();
-
 const usermodel =require("./models/user")
 const postmodel =require("./models/post")
 const { hash } = require("crypto")
@@ -19,7 +18,6 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname,"public")))
 app.use(cookieParser())
-
 
 app.get("/delete/:id", loogedIn, async (req, res) => {
         let post = await postmodel.findOneAndDelete({ _id: req.params.id });
