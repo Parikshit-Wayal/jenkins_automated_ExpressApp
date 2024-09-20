@@ -12,7 +12,8 @@
     "nodemon": "^3.1.4"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev":"nodemon server.js"
   },
   "name": "login-18",
   "version": "1.0.0",
