@@ -4,25 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="icon" href="data:image/png;base64,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">
-
     <title>Edit</title>
 </head>
-<body  >
-    <div class="w-full min-h-screen  text-white p-10" style="background-color: lightblue;" >
-        <div class="flex items-end w-full" >        <a  class="bg-red-500 rounded-md px-3 py-2 " href="/logout">logout</a>
+<body>
+    <div class="w-full min-h-screen text-white p-5 sm:p-10" style="background-color: lightblue;">
+        <div class="flex justify-start w-full mb-5">
+            <a class="bg-red-500 rounded-md px-3 py-2" href="/logout">Logout</a>
+        </div>
 
+        <h5 class="mb-5 text-xl">You can edit your post.</h5>
 
-        </div><br>
+        <form action="/update/<%=post.id%>" method="post">
+            <!-- Make textarea responsive without changing the UI -->
+            <textarea 
+                style="font-weight: 500; font-family:'Courier New', Courier, monospace;" 
+                class="resize-none bg-transparent text-xl text-black border-2 border-zinc-200 w-full sm:w-1/2 p-3 outline-none" 
+                placeholder="What's on your mind?" name="content" id="">
+                <%=post.content%>
+            </textarea>
 
-        <h5 class="mb-5 text-xl" >You can edit your post . </h5>
-        <form  action="/update/<%=post.id%>" method="post">
-            <textarea style="font-weight: 500;font-family:'Courier New', Courier, monospace ;" class="resize-none bg-transparent  text-xl text-black border-2 border-zinc-200 w-1/4 p-3 outline-none"  placeholder="Whats in your mind?" name="content" id=""><%=post.content%></textarea>
-            <input class="py-2 px-3 bg-yellow-600 block rounded-md mt-2 w-40" value="update post" type="submit">
+            <!-- Submit button remains responsive without UI changes -->
+            <input class="py-2 px-3 bg-yellow-600 block rounded-md mt-2 w-full sm:w-40" value="Update Post" type="submit">
         </form>
-  
-       
-    </div>
     </div>
 </body>
 </html>
