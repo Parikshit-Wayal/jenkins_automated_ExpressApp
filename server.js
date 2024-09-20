@@ -8,7 +8,7 @@ require('dotenv').config();
 const usermodel =require("./models/user")
 const postmodel =require("./models/post")
 const { hash } = require("crypto")
-const bcrypt=require("bcrypt")
+const bcrypt=require("bcryptjs")
 const jwt=require("jsonwebtoken")
 const { read } = require("fs")
 const { DefaultDeserializer } = require("v8")
