@@ -1,31 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="data:image/png;base64,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">
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi4fpK-5PS3ggW2mRDva5IT5aKUTgW5Odqvg&s">
     <title>PostWebApp</title>
 </head>
-<body>
-    <div class="w-full min-h-screen bg-zinc-900 text-white p-10">
-        <h3 class="text-white text-3xl mb-5">Create Account</h3>
-        <form action="/register" method="post">
-            <input id="name" class="px-3 py-3 m-2 mt-5 outline-none rounded-md bg-transparent border-2" type="text" placeholder="Name" name="name" required>
-            <input id="username" class="px-3 py-3 m-2 mt-5 outline-none rounded-md bg-transparent border-2" type="text" placeholder="Username" name="username" required>
-            <input id="email" class="px-3 py-3 m-2 mt-5 outline-none rounded-md bg-transparent border-2" type="email" placeholder="Email" name="email" required>
-            <input id="password" class="px-3 py-3 m-2 mt-5 outline-none rounded-md bg-transparent border-2" type="password" placeholder="Password" name="password" required>
-            <input class="px-5 py-2 m-2 mt-5 rounded-md bg-blue-600" type="submit" value="Create Account">
+
+<body class="bg-gray-900 min-h-screen flex items-center justify-center">
+    <style>
+.pyramid-loader {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: block;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg);
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.pyramid-loader .wrapper .side {
+    width: 70px;
+    height: 70px;
+    /* you can choose any gradient or color you want */
+    /* background: radial-gradient( #2F2585 10%, #F028FD 70%, #2BDEAC 120%); */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    transform-origin: center top;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.pyramid-loader .wrapper .side1 {
+    transform: rotateZ(-30deg) rotateY(90deg);
+    background: linear-gradient(to bottom right, #1afbf0, #da00ff);
+}
+
+.pyramid-loader .wrapper .side2 {
+    transform: rotateZ(30deg) rotateY(90deg);
+    background: linear-gradient(to bottom right, #1afbf0, #da00ff);
+}
+
+.pyramid-loader .wrapper .side3 {
+    transform: rotateX(30deg);
+    background: linear-gradient(to bottom right, #1afbf0, #da00ff);
+}
+
+.pyramid-loader .wrapper .side4 {
+    transform: rotateX(-30deg);
+    background: linear-gradient(to bottom right, #1afbf0, #da00ff);
+}
+
+.pyramid-loader .wrapper .shadow {
+    width: 60px;
+    height: 60px;
+    background: #8b5ad5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    transform: rotateX(90deg) translateZ(-40px);
+    filter: blur(12px);
+}
+</style>
+
+
+
+
+
+<div class="bg-gray-800 text-white w-full max-w-md mx-auto p-8 rounded-md shadow-lg">
+    <div   class="pyramid-loader">
+      <div style="margin-left: 35px;" class="wrapper">
+        <span class="side side1"></span>
+        <span class="side side2"></span>
+        <span class="side side3"></span>
+        <span class="side side4"></span>
+        <span class="shadow"></span>
+      </div>
+    </div>
+    <h3 class="text-4xl font-semibold text-center mb-6">Create Account</h3>
+    <form action="/register" method="post" class="flex flex-col">
+        <input id="name" class="px-4 py-3 mb-4 rounded-md bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition" type="text" placeholder="Name" name="name" required>
+        <input id="username" class="px-4 py-3 mb-4 rounded-md bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition" type="text" placeholder="Username" name="username" required>
+        <input id="email" class="px-4 py-3 mb-4 rounded-md bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition" type="email" placeholder="Email" name="email" required>
+            <input id="password" class="px-4 py-3 mb-6 rounded-md bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition" type="password" placeholder="Password" name="password" required>
+            <button type="submit" class="px-4 py-3 rounded-md bg-blue-600 hover:bg-blue-700 text-white font-semibold transition duration-200">Create Account</button>
         </form>
-        <div class="mt-5">
+        <div class="mt-6 text-center">
             <p class="text-gray-400">Already have an account?</p>
-            <a class="text-blue-500 underline" href="/login">Login here</a>
+            <a class="text-blue-500 hover:text-blue-400 transition duration-200 underline" href="/login">Login here</a>
         </div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const inputs = document.querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="password"]');
-            
+            const inputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="password"]');
             inputs.forEach((input, index) => {
                 input.addEventListener('keypress', (event) => {
                     if (event.key === 'Enter') {
@@ -40,4 +128,5 @@
         });
     </script>
 </body>
+
 </html>

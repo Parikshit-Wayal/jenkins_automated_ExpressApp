@@ -19,11 +19,17 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname,"public")))
 app.use(cookieParser())
 
+
+
 app.get("/delete/:id", loogedIn, async (req, res) => {
         let post = await postmodel.findOneAndDelete({ _id: req.params.id });
 
         res.redirect("/profile");
 
+});
+
+app.get('/index', (req, res) => {
+    res.render('index'); // Assuming you have your index.ejs in the views folder
 });
 
 
