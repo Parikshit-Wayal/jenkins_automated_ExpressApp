@@ -25,22 +25,22 @@
         <h3 class="text-2xl md:text-4xl font-semibold text-center mb-4">Login to Your Account</h3>
         <form action="/login" method="post" class="flex flex-col space-y-3">
             <input 
-                class="px-4 py-3 rounded-md bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition" 
-                type="email" 
-                placeholder="Email" 
-                name="email" 
-                required
+            class="px-4 py-3 rounded-md bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition" 
+            type="email" 
+            placeholder="Email" 
+            name="email" 
+            required
             >
             <input 
-                class="px-4 py-3 rounded-md bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition" 
-                type="password" 
-                placeholder="Password" 
-                name="password" 
-                required
+            class="px-4 py-3 rounded-md bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition" 
+            type="password" 
+            placeholder="Password" 
+            name="password" 
+            required
             >
             <button 
-                type="submit" 
-                class="px-4 py-3 rounded-md bg-blue-600 hover:bg-blue-700 text-white font-semibold transition duration-200"
+            type="submit" 
+            class="px-4 py-3 rounded-md bg-blue-600 hover:bg-blue-700 text-white font-semibold transition duration-200"
             >
                 Login Account
             </button>
@@ -54,8 +54,8 @@
 
         <div class="flex justify-center mt-4">
             <button 
-                id="googleSignInBtn" 
-                style="
+            id="googleSignInBtn" 
+            style="
                     max-width: 300px; /* Adjusted width for mobile */
                     display: flex;
                     overflow: hidden;
@@ -112,25 +112,25 @@
             messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
             appId: "YOUR_APP_ID"
         };
-
+        
         // Initialize Firebase
         const app = firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
-
+        
         // Google Sign-In
         const googleSignInBtn = document.getElementById('googleSignInBtn');
         googleSignInBtn.addEventListener('click', () => {
             const provider = new firebase.auth.GoogleAuthProvider();
             auth.signInWithPopup(provider)
-                .then((result) => {
-                    console.log('User signed in:', result.user);
-                    // You can redirect the user or handle sign-in success here
-                })
-                .catch((error) => {
-                    console.error('Error signing in:', error);
-                });
+            .then((result) => {
+                console.log('User signed in:', result.user);
+                // You can redirect the user or handle sign-in success here
+            })
+            .catch((error) => {
+                console.error('Error signing in:', error);
+            });
         });
-    </script>
+        </script>
 </body>
 </html>
 
@@ -143,7 +143,7 @@
         transform-style: preserve-3d;
         transform: rotateX(-20deg);
     }
-
+    
     .wrapper {
         position: relative;
         width: 100%;
@@ -151,13 +151,13 @@
         transform-style: preserve-3d;
         animation: spin 4s linear infinite;
     }
-
+    
     @keyframes spin {
         100% {
             transform: rotateY(360deg);
         }
     }
-
+    
     .pyramid-loader .wrapper .side {
         width: 70px;
         height: 70px;
@@ -170,27 +170,27 @@
         transform-origin: center top;
         clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     }
-
+    
     .pyramid-loader .wrapper .side1 {
         transform: rotateZ(-30deg) rotateY(90deg);
         background: linear-gradient(to bottom right, #1afbf0, #da00ff);
     }
-
+    
     .pyramid-loader .wrapper .side2 {
         transform: rotateZ(30deg) rotateY(90deg);
         background: linear-gradient(to bottom right, #1afbf0, #da00ff);
     }
-
+    
     .pyramid-loader .wrapper .side3 {
         transform: rotateX(30deg);
         background: linear-gradient(to bottom right, #1afbf0, #da00ff);
     }
-
+    
     .pyramid-loader .wrapper .side4 {
         transform: rotateX(-30deg);
         background: linear-gradient(to bottom right, #1afbf0, #da00ff);
     }
-
+    
     .pyramid-loader .wrapper .shadow {
         width: 60px;
         height: 60px;
@@ -204,7 +204,7 @@
         transform: rotateX(90deg) translateZ(-40px);
         filter: blur(12px);
     }
-
+    
     button .google-icon {
         background-color: #fff;
         display: grid;
@@ -216,13 +216,13 @@
         border-radius: 0.5rem 0 0 0.5rem;
         filter: brightness(1.2);
     }
-
+    
     button span svg {
         width: 1.5rem;
         height: 1.5rem;
         filter: drop-shadow(0 0 5px rgba(66, 133, 244, 0.8));
     }
-
+    
     button:hover {
         box-shadow: 0 4px 30px rgba(66, 133, 244, 0.1),
         0 2px 30px rgba(52, 168, 83, 0.06);
@@ -233,3 +233,9 @@
         filter: brightness(1);
     }
 </style>
+
+    <script>
+  document.getElementById("googleSignInBtn").onclick = function () {
+    window.location.href = "/auth/google"; // redirect to backend Google OAuth route
+  };
+</script>
