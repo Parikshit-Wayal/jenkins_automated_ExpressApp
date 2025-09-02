@@ -101,6 +101,11 @@ pipeline {
     }
 }
 ```
+
+---
+
+Usually Jenkins follows a Master–Slave (Controller–Agent) architecture, but in my setup I handled both configuration & job execution on the same server to keep it simple for learning.
+
 ---
 
 ## 🔐 Credentials Management in Jenkins
