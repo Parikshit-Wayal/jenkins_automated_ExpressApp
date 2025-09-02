@@ -4,6 +4,8 @@
 Earlier, while learning **Web Development**, I created a **Node.js + Express.js app** (live at 👉 [postwebapp.onrender.com](https://postwebapp.onrender.com)).  
 
 As a **DevOps learner**, I extended this project by automating its build, test, and deployment process using **Jenkins** and **Docker**.  
+  ![creds..](./images/workflow.png)  
+
 To get started, I took reference from this [YouTube tutorial](https://www.youtube.com/watch?v=XaSdKR2fOU4) and then customized it for my own use case.  
 
 This documentation explains the setup, pipeline stages, and workflow.
@@ -26,6 +28,8 @@ Source Code Repo: [Jenkins Automated Express App](https://github.com/Parikshit-W
 ---
 
 ## 🛠️ Pipeline Stages
+  ![creds..](./images/pipeline-stages.png)  
+
 
 The pipeline was written in **Groovy syntax** inside `Jenkinsfile`.  
 Below are the defined stages:
@@ -97,6 +101,7 @@ pipeline {
 
 One of the best features Jenkins provides is **Global Credentials Binding**.  
 Instead of hardcoding sensitive information (like DockerHub username/password) inside the pipeline, I created credentials in Jenkins:
+  ![creds..](./images/crdentials.png)  
 
 - **Type**: Username with password  
 - **ID**: `dockerHubCred` (used inside Jenkinsfile)  
@@ -116,11 +121,11 @@ withCredentials([usernamePassword(credentialsId: 'dockerHubCred', usernameVariab
 
 Jenkins supports a wide range of plugins to extend functionality.  
 In this project, I used the **Pipeline: Stage View Plugin**, which provides a clear and visual way to see each stage of the pipeline execution.  
-  ![EC2 Created](./screenshots/ec2-created.png)  
 
 
 📌 With this plugin, you can:  
 - See **all stages** (Clone → Install Dependencies → Test → Build → Push → Deploy) in a visual timeline.  
+  ![creds..](./images/stages.png)  
 - Identify **which stage failed** if there’s an error.  
 - Track build history per stage.  
 
