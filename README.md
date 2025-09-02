@@ -90,3 +90,38 @@ pipeline {
         }
     }
 }
+```
+---
+
+## 🔐 Credentials Management in Jenkins
+
+One of the best features Jenkins provides is **Global Credentials Binding**.  
+Instead of hardcoding sensitive information (like DockerHub username/password) inside the pipeline, I created credentials in Jenkins:
+
+- **Type**: Username with password  
+- **ID**: `dockerHubCred` (used inside Jenkinsfile)  
+
+Then, I accessed them securely using:
+
+```groovy
+withCredentials([usernamePassword(credentialsId: 'dockerHubCred', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+    sh 'docker login -u $USER -p $PASS'
+    sh 'docker tag expressapp:latest parikshit1212/expressapp:latest'
+    sh 'docker push parikshit1212/expressapp:latest'
+}
+```
+---
+
+## 🔌 Jenkins Plugins
+
+Jenkins supports a wide range of plugins to extend functionality.  
+In this project, I used the **Pipeline: Stage View Plugin**, which provides a clear and visual way to see each stage of the pipeline execution.  
+  ![EC2 Created](./screenshots/ec2-created.png)  
+
+
+📌 With this plugin, you can:  
+- See **all stages** (Clone → Install Dependencies → Test → Build → Push → Deploy) in a visual timeline.  
+- Identify **which stage failed** if there’s an error.  
+- Track build history per stage.  
+
+Example view with the plugin enabled:  
