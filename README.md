@@ -1,4 +1,10 @@
-# 🚀 Jenkins Automated Pipeline for Node.js Express App
+<table>
+  <tr>
+    <td><img src="https://www.jenkins.io/images/logos/jenkins/jenkins.png" alt="IAM Icon" height="100" width="200"/></td>
+    <td><h1 align="center">Jenkins Automated Pipeline for Node.js Express App<</h1></td>
+  </tr>
+</table>
+
 
 ## 📌 Project Overview
 Earlier, while learning **Web Development**, I created a **Node.js + Express.js app** (live at 👉 [postwebapp.onrender.com](https://postwebapp.onrender.com)).  
