@@ -58,13 +58,34 @@ app.get("/auth/google",
 
 app.get("/auth/google/callback", 
   passport.authenticate("google", { failureRedirect: "/login" }),
-  (req, res) => {
-    // Successful login
-    res.redirect("/profile");  // change to wherever you want
-  }
-);
+  async (req, res) => {
+    try {
+      const email = req.user.emails[0].value;
 
+      // Check if user already exists
+      let user = await usermodel.findOne({ email });
 
+      if (!user) {
+        // Create new user in DB
+        user = await usermodel.create({
+          name: req.user.displayName,
+          email,
+          username: req.user.displayName.replace(/\s+/g, '').toLowerCase(),
+          password: "", // optional, since Google login
+          age: null
+        });
+      }
+
+      // Set JWT token
+      const token = jwt.sign({ email: user.email, userid: user._id }, "shhh");
+      res.cookie("token", token, { httpOnly: true });
+
+      res.redirect("/profile");
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Internal Server Error");
+    }
+});
 
 
 app.get("/delete/:id", loogedIn, async (req, res) => {
