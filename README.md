@@ -1,7 +1,7 @@
 <table>
   <tr>
     <td><img src="https://www.jenkins.io/images/logos/jenkins/jenkins.png" alt="IAM Icon" height="100" width="200"/></td>
-    <td><h1 align="center">Jenkins Automated Pipeline for Node.js Express App<</h1></td>
+    <td><h1 align="center">Jenkins Automated Pipeline for Node.js Express App </h1></td>
   </tr>
 </table>
 
